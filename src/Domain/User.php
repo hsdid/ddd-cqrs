@@ -5,6 +5,7 @@ namespace RecruitmentApp\Domain;
 
 use Doctrine\ORM\Mapping as ORM;
 use RecruitmentApp\Domain\User\ApiKey;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,10 +21,10 @@ class User implements \JsonSerializable
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Embedded(class="RecruitmentApp\Domain\Email", columnPrefix=false)
+     * @Assert\NotBlank(message="Please enter email")
      */
     private Email $email;
-
     /**
      * @ORM\Embedded(class="RecruitmentApp\Domain\User\ApiKey", columnPrefix=false)
      */

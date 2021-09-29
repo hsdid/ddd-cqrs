@@ -5,6 +5,7 @@ namespace RecruitmentApp\Domain;
 
 use Doctrine\ORM\Mapping as ORM;
 use RecruitmentApp\Domain\Email\Exception\InvalidEmail;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Embeddable
@@ -12,7 +13,8 @@ use RecruitmentApp\Domain\Email\Exception\InvalidEmail;
 class Email
 {
     /**
-     * @ORM\Column(type = "string")
+     * @Assert\NotBlank()
+     * @ORM\Column(type = "string", name="email")
      */
     private string $email;
 

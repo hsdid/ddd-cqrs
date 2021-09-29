@@ -12,8 +12,15 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         public: false
 
+    RecruitmentApp\Domain\:
+        resource: '../src/Domain/'
+
+    RecruitmentApp\Application\:
+        resource: '../src/Application/'
+
     RecruitmentApp\Framework\:
         resource: '../src/Framework/'
+
     RecruitmentApp\Framework\Controller\:
         resource: '../src/Framework/Controller/'
         tags: ['controller.service_arguments']
